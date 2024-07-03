@@ -17,6 +17,8 @@ import static lombok.AccessLevel.NONE;
 
 @Getter
 @Setter
+@Entity
+@Table(name = "organizer")
 public class Organizer {
     @Id
     @GeneratedValue(strategy =IDENTITY)

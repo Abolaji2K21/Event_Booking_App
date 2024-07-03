@@ -12,6 +12,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
+@Table(name = "ticket")
 public class Ticket {
 
     @Id
@@ -25,7 +26,7 @@ public class Ticket {
     private String eventDescription;
     @Enumerated(EnumType.STRING)
     private TicketStatus ticketStatus;
-
     @Column(unique = true)
     private Long reservationId;
+
 }
