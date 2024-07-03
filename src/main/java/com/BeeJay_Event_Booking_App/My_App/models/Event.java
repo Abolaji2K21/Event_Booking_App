@@ -1,5 +1,6 @@
 package com.BeeJay_Event_Booking_App.My_App.models;
 
+import com.BeeJay_Event_Booking_App.My_App.constant.Category;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,10 +14,11 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String eventName;
-    private LocalDate date;
+    private String eventLocation;
+    private LocalDate dateCreated;
     private Integer attendees;
     private String description;
-//    @Enumerated(value = EnumType.STRING)
-//    private Category category;
+    @Enumerated(value = EnumType.STRING)
+    private Category category;
 
 }
