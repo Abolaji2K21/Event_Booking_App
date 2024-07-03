@@ -25,8 +25,7 @@ public class Ticket {
     private String eventDescription;
     @Enumerated(EnumType.STRING)
     private TicketStatus ticketStatus;
-//    @ManyToOne
-//    private Customer customer;
+
     @Column(unique = true)
     private Long reservationId;
 }
