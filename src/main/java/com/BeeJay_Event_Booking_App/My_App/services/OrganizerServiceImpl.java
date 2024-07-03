@@ -2,6 +2,7 @@ package com.BeeJay_Event_Booking_App.My_App.services;
 
 import com.BeeJay_Event_Booking_App.My_App.dtos.requests.CreateOrganizerRequest;
 import com.BeeJay_Event_Booking_App.My_App.dtos.responds.CreateOrganizerResponse;
+import com.BeeJay_Event_Booking_App.My_App.exceptions.UserNotFoundException;
 import com.BeeJay_Event_Booking_App.My_App.models.Organizer;
 import com.BeeJay_Event_Booking_App.My_App.repositories.OrganizerRepository;
 import lombok.AllArgsConstructor;
@@ -31,6 +32,19 @@ public class OrganizerServiceImpl implements OrganizerService{
         var organizerResponse = modelMapper.map(organizer, CreateOrganizerResponse.class);
         organizerResponse.setMessage("User registered successfully");
         return organizerResponse;
+
+    }
+
+    @Override
+    public Organizer getById(Long organiserId) throws UserNotFoundException {
+        return organizerRepository.findById(organiserId)
+                .orElseThrow(()-> new UserNotFoundException(
+                        String.format("user with id %d not found", organiserId)));
+    }
+
+    @Override
+    public Organizer getUserByUsername(String username) throws UserNotFoundException {
+        return organizerRepository.findByEmail(username).orElseThrow(()-> new UserNotFoundException("Organizer not found"));
 
     }
 }
