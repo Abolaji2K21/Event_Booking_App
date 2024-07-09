@@ -29,5 +29,5 @@ public class Ticket {
     @Column(unique = true)
     private Long reservationId;
 
-    private Integer discount;
+//    private Integer discount;
 }
