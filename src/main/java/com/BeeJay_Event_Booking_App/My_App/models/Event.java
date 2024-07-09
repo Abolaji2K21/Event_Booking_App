@@ -23,5 +23,5 @@ public class Event {
     @Enumerated(value = EnumType.STRING)
     private Category category;
     @ManyToOne
-    private Organizer organizerId;
+    private Organizer organizer;
 }

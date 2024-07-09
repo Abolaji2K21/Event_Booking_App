@@ -24,7 +24,7 @@ public class EventServiceImpl implements EventService{
         }
 
             Event event = modelMapper.map(request, Event.class);
-            event.setOrganizerId(organizer);
+            event.setOrganizer(organizer);
             eventRepository.save(event);
             AddEventResponse response = new AddEventResponse();
             response.setId(event.getId());
@@ -42,7 +42,7 @@ public class EventServiceImpl implements EventService{
 
     public Event save(Event event, Organizer organizer) {
         Event myEvent = modelMapper.map(event, Event.class);
-        myEvent.setOrganizerId(organizer);
+        myEvent.setOrganizer(organizer);
         return eventRepository.save(myEvent);
     }
 }
